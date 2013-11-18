@@ -1,0 +1,58 @@
+purge_log:
+  application.log:
+    enabled: 0
+    name_format: '%name.%aaaa-%mm-%dd_%HH-%MM.gz'
+    source: /home/user/application/log/
+    days_before: 0
+    runs_at:
+      days_of_month: [ 'All' ]
+      days_of_week: [ 'All' ]
+      months: [ 'All' ]
+      hour: [ 'All' ]
+      minute: [ 55 ]
+
+gzip_log:
+  application.log:
+    enabled: 0
+    name_format: '%name.%aaaa-%mm-%dd_%HH-%MM'
+    source: /home/user/application/log/
+    destination: /home/user/application/log/old
+    days_before: 10
+    runs_at:
+      days_of_month: [ 'All' ]
+      days_of_week: [ 'All' ]
+      months: [ 'All' ]
+      hour: [ 'All' ]
+      minute: [ 'All' ]
+    
+rotate_log:
+  application.log:
+    enabled: 0
+    source: /home/user/application/log/application.log
+    destination: /home/user/application/log/
+    runs_at:
+      days_of_month: [ 'All' ]
+      days_of_week: [ 'All' ]
+      months: [ 'All' ]
+      hour: [ 'All' ]
+      minute: [ 'All' ]
+
+#backup:
+#  bkp1:
+#    enabled: 0
+#    source: /etc/hosts
+##    copy_method: s3
+##    destination: bucket_name/folder/filename
+##    copy_method: disk
+##    destination: folder/path/
+#    copy_method: scp
+#    destination: "user@server-for-scp:"
+#    runs_at:
+#      #days_of_month: [ 1, 2, 3]
+#      #days_of_week: [ 'Mon', 'Tue', 'Fri' ]
+#      #months: [ 'Jan', 'Mar', 'Sep' ]
+#      days_of_month: [ 'All' ]
+#      days_of_week: [ 'All' ]
+#      months: [ 'All' ]
+#      hour: [ 'All' ]
+#      minute: [ 'All' ]
