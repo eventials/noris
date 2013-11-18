@@ -153,7 +153,7 @@ for gzip in gzips:
         for filename in find_files(name_format, gzip, src, days_before):
             sys.stdout.write("Gziping %s..." % filename)
             check_call(['gzip', filename])
-            os.system("mv %s.gz %s" % (filename, dst))
+            system("mv %s.gz %s" % (filename, dst))
             sys.stdout.write("[OK]")
             sys.stdout.write("\n")
 
@@ -195,13 +195,13 @@ for bkp in backups:
 
     def cp_disk():
         sys.stdout.write("Copying %s to %s...\n" % (bkp, dst))
-        os.system("cp /tmp/%s.tar.gz %s.%s" % (bkp, dst, filedate))
+        system("cp /tmp/%s.tar.gz %s.%s" % (bkp, dst, filedate))
         sys.stdout.write("[OK]")
         sys.stdout.write("\n")
 
     def cp_scp():
         sys.stdout.write("Sending %s to %s...\n" % (bkp, dst))
-        os.system("scp /tmp/%s.tar.gz %s.%s" % (bkp, dst, filedate))
+        system("scp /tmp/%s.tar.gz %s.%s" % (bkp, dst, filedate))
         sys.stdout.write("[OK]")
         sys.stdout.write("\n")
 
